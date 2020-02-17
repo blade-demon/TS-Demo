@@ -1,25 +1,17 @@
-import { NumberCollection } from "./NumberCollection";
-import { CharacterCollection } from "./CharacterCollection";
-import { LinkedList } from './LinkedList';
+import { MatchReader } from './MatchReader';
 
-// Number sort
-const arr = [50, 10, -1, 0, 5];
-const numberCollection = new NumberCollection(arr);
-numberCollection.sort();
-console.log(numberCollection.data);
+const reader = new MatchReader('./football.csv');
+reader.read();
+console.log(reader.data);
 
-// Character sort
-const str = "HelloWorld";
-const characterCollection = new CharacterCollection(str);
-characterCollection.sort();
-console.log(characterCollection.data);
+let manUnitedWins = 0;
 
-// LinkedList sort
-const linkedList = new LinkedList();
-linkedList.add(10);
-linkedList.add(-3);
-linkedList.add(-1);
-linkedList.add(9);
-linkedList.add(31);
-linkedList.sort();
-linkedList.print();
+for (let match of reader.data) {
+	if (match[1] === "Man United" && match[5] === "H") {
+		manUnitedWins++;
+	} else if (match[2] === "Man United" && match[5] === "A") {
+		manUnitedWins++;
+	}
+}
+
+console.log(manUnitedWins);
