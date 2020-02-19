@@ -1,17 +1,9 @@
-import { MatchReader } from './MatchReader';
 
-const reader = new MatchReader('./football.csv');
-reader.read();
-console.log(reader.data);
+import { MatchReader } from "./MatchReader";
+import { Summary } from "./Summary";
 
-let manUnitedWins = 0;
+const matchReader = MatchReader.fromCsv("./football.csv");
+matchReader.load();
 
-for (let match of reader.data) {
-	if (match[1] === "Man United" && match[5] === "H") {
-		manUnitedWins++;
-	} else if (match[2] === "Man United" && match[5] === "A") {
-		manUnitedWins++;
-	}
-}
-
-console.log(manUnitedWins);
+const summary = Summary.winsAnalysisWithHtmlReport("Arsenal");
+summary.buildAndPrintReport(matchReader.matches);
