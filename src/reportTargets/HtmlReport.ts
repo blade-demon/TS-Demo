@@ -9,8 +9,8 @@ export class HtmlReport implements OutputTarget {
         <div>${report}</div>
       </div>
     `;
-    fs.writeFileSync("report.html", html, {
-      encoding: "utf-8"
-    });
+		fs.writeFileSync("report.html", html, {
+			encoding: "utf-8"
+		});
 	}
 }

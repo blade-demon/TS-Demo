@@ -12,7 +12,7 @@ export interface OutputTarget {
 
 export class Summary {
 	static winsAnalysisWithHtmlReport(team: string): Summary {
-    return new Summary(new WinAnalysis(team), new HtmlReport());
+		return new Summary(new WinAnalysis(team), new HtmlReport());
 	}
 
 	constructor(public analyzer: Analyzer, public outputTarget: OutputTarget) {}

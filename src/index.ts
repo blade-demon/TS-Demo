@@ -1,4 +1,3 @@
-
 import { MatchReader } from "./MatchReader";
 import { Summary } from "./Summary";
 
